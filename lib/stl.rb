@@ -1,6 +1,6 @@
 class STL
   def initialize file, &block
-    name = file.gsub /^[a-zA-Z0-9]/, ''
+    name = file.gsub /[^a-zA-Z0-9]/, '_'
     @buffer = []
     stlputs "solid #{name}"
     begin
