@@ -79,7 +79,7 @@ STL.new 'tokkuri.stl' do
     elsif t = range(z1, pos2..1)
       pr,pz=line.(1-t)
       pr-=TOKKURI_THICKNESS
-      pz=Math.sqrt((2*TOKKURI_THICKNESS**2+pz**2)/(1+2*TOKKURI_THICKNESS**2))
+      pz=Math.sqrt((TOKKURI_THICKNESS**2/16+pz**2)/(1+TOKKURI_THICKNESS**2/16))
     end
     cos = Math.cos th
     sin = Math.sin th
