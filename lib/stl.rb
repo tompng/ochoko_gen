@@ -1,6 +1,7 @@
 class STL
-  def initialize name='object', options, &block
+  def initialize options={}, &block
     @buffer = []
+    name = options[:name] || 'object'
     stlputs "solid #{name}"
     begin
       instance_eval &block
