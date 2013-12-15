@@ -1,6 +1,5 @@
 class STL
-  def initialize file, &block
-    name = file.gsub /[^a-zA-Z0-9]/, '_'
+  def initialize name='object', options, &block
     @buffer = []
     stlputs "solid #{name}"
     begin
@@ -8,7 +7,15 @@ class STL
     ensure
       stlputs "endsolid #{name}"
     end
-    File.open(file,'w'){|f|f.write @buffer.join("\n")}
+    if options && options[:io]
+      options[:io].write data
+    elsif options && options[:file]
+      File.open(options[:file],'w'){|f|f.write data}
+    end
+  end
+
+  def data
+    @buffer.join "\n"
   end
 
   def range t, range

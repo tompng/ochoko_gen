@@ -13,7 +13,7 @@ end
 rand2d = Rand2D.new 100, 100, 0.1, 0.5
 texture = Texture.new 'image.png'
 
-STL.new 'ochoko.stl' do
+STL.new file: 'ochoko.stl' do
   pole 200, 200 do |t1, z1|
     th = 2*Math::PI*t1
     if t = range(z1, 0..0.05)

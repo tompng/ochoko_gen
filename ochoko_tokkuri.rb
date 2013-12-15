@@ -14,7 +14,7 @@ H=400/4
 
 texture = Texture.new 'image.png'
 
-STL.new 'ochoko.stl' do
+STL.new 'ochoko', file: 'set_ochoko.stl' do
   rand2d = Rand2D.new W, H, 0.1, 0.5
   line=->t{
     [
@@ -60,7 +60,7 @@ end
 
 
 TOKKURI_THICKNESS=THICKNESS
-STL.new 'tokkuri.stl' do
+STL.new 'tokkuri', file: 'set_tokkuri.stl' do
   rand2d = Rand2D.new W, H, 0.1, 0.5
   line=->z{[1+2*z-4*z**2+2*z**5, z]}
   reducepole W, H, 0.02 do |t1, z1|
